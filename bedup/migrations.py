@@ -18,36 +18,17 @@
 # You should have received a copy of the GNU General Public License
 # along with bedup.  If not, see <http://www.gnu.org/licenses/>.
 
-from alembic.migration import MigrationContext
-from alembic.operations import Operations
 from sqlalchemy import MetaData
 
 from .model import META
 
-
-REV = 1
-
-
-def upgrade_with_range(context, from_rev, to_rev):
-    assert from_rev == to_rev
-    op = Operations(context)
-    #from IPython import embed; embed()
-
-
 def upgrade_schema(engine):
-    context = MigrationContext.configure(engine.connect())
-    current_rev = context.get_current_revision()
+    """
+    This method is supposed to migrate the database schema to match the
+    current implementation.
 
-    if current_rev is None:
-        inspected_meta = MetaData()
-        inspected_meta.reflect(bind=engine)
-        if 'Inode' in inspected_meta.tables:
-            inspected_rev = 1
-            upgrade_with_range(context, inspected_rev, REV)
-        else:
-            META.create_all(engine)
-    else:
-        current_rev = int(current_rev)
-        upgrade_with_range(context, current_rev, REV)
-    context._update_current_rev(current_rev, REV)
-
+    Since this is not implemented yet, this method is a stub for
+    future use (e.g. with alembic). It currently simply creates the
+    required tables.
+    """
+    META.create_all(engine)
