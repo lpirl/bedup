@@ -26,12 +26,6 @@ This should get you started on Fedora:
 Installation
 ============
 
-Install CFFI.
-
-::
-
-    pip install --user cffi
-
 Option 1 (recommended): from a git clone
 ----------------------------------------
 
@@ -46,16 +40,33 @@ pull the rest of our Python dependencies:
 
 ::
 
-    python setup.py install --user
-    cp -lt ~/bin ~/.local/bin/bedup
+     pip install --user git+https://github.com/lpirl/bedup.git
 
 Option 2: from a PyPI release
 -----------------------------
 
+**WARNING:** the PyPi release is currently broken.
+
 ::
 
     pip install --user bedup
-    cp -lt ~/bin ~/.local/bin/bedup
+    
+Add the bedup executable to your PATH
+-------------------------------------
+
+For Bash, add the following to ``~/.bash_profile``:
+
+::
+
+  PATH=$PATH:~/.local/bin
+  export PATH
+
+
+For ZSH, add the following to ``~/.zshenv``:
+
+::
+
+  path=(~/.local/bin $path)
 
 Running
 =======
