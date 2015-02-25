@@ -26,6 +26,12 @@ This should get you started on Fedora:
 Installation
 ============
 
+Install CFFI.
+
+::
+
+    pip install --user cffi
+
 Option 1 (recommended): from a git clone
 ----------------------------------------
 
@@ -50,7 +56,7 @@ Option 2: from a PyPI release
 ::
 
     pip install --user bedup
-    
+
 Add the bedup executable to your PATH
 -------------------------------------
 
@@ -205,4 +211,3 @@ Build status
 
 .. image:: https://travis-ci.org/g2p/bedup.png
    :target: https://travis-ci.org/g2p/bedup
-
